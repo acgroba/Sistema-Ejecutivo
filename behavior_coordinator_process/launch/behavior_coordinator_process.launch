@@ -1,0 +1,47 @@
+<launch>
+
+  <!-- Basic data -->
+  <arg name="drone_id_namespace"                 default="drone1" />
+  <arg name="drone_id"                           default="1" />
+  <arg name="my_stack_directory"                 default="$(env AEROSTACK_STACK)" />
+  <arg name="behavior_catalog_path"              default="$(env AEROSTACK_STACK)/configs/general/behavior_catalog_aerostack_executive.yaml" />
+  <arg name="execution_request_topic"            default="execution_request" />
+
+  <!-- topics & services-->
+  <arg name="activate_behavior_srv"              default="request_behavior_activation" />
+  <arg name="deactivate_behavior_srv"            default="request_behavior_deactivation" />
+  <arg name="list_of_active_behaviors_topic"     default="list_of_active_behaviors" />
+  <arg name="behavior_activation_finished_topic" default="behavior_activation_finished" />
+  <arg name="check_activation_conditions_cli"    default="check_activation_conditions" />
+  <arg name="consult_incompatible_behaviors_srv" default="consult_incompatible_behaviors" />
+  <arg name="consult_available_behaviors_srv"    default="consult_available_behaviors" />
+  <arg name="check_behavior_format_srv"          default="check_behavior_format" />
+
+  <group ns="$(arg drone_id_namespace)">
+
+    <!-- Basic data -->
+    <param name="drone_id_namespace"     value="$(arg drone_id_namespace)"    type="str" />
+    <param name="drone_id"               value="$(arg drone_id)"              type="str" />
+    <param name="~my_stack_directory"     value="$(arg my_stack_directory)"    type="str" />
+    <param name="behavior_catalog_path"  value="$(arg behavior_catalog_path)" type="str" />
+    <param name="execution_request_topic"  value="$(arg execution_request_topic)" type="str" />
+
+    <!-- topics & services -->
+    <param name="~activate_behavior_srv"                value="$(arg activate_behavior_srv)" type="str" />
+    <param name="~deactivate_behavior_srv"              value="$(arg deactivate_behavior_srv)"  type="str" />
+    <param name="~list_of_active_behaviors_topic"       value="$(arg list_of_active_behaviors_topic)"   type="str" />
+    <param name="~behavior_activation_finished_topic"   value="$(arg behavior_activation_finished_topic)"   type="str" />
+    <param name="~check_activation_conditions_cli"      value="$(arg check_activation_conditions_cli)"    type="str" />
+    <param name="~consult_incompatible_behaviors_srv"   value="$(arg consult_incompatible_behaviors_srv)"    type="str" />
+    <param name="~consult_available_behaviors_srv"      value="$(arg consult_available_behaviors_srv)"     type="str" />
+    <param name="~check_behavior_format_srv"            value="$(arg check_behavior_format_srv)"     type="str" />
+
+    <node name="behavior_coordinator_process" pkg="behavior_coordinator_process"  type="behavior_coordinator_process"  output="screen"/>
+    <test test-name="behavior_coordinator_process_test"
+      pkg="behavior_coordinator_process"
+      type="behavior_coordinator_process_test"/>
+
+  </group>
+
+</launch>
+

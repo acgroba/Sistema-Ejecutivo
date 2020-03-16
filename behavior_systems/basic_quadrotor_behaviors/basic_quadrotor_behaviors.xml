@@ -1,0 +1,32 @@
+<library path="lib/libbasic_quadrotor_behaviors">
+	<class name="basic_quadrotor_behaviors/BehaviorTakeOff" type="basic_quadrotor_behaviors::BehaviorTakeOff"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorTakeOff.
+		</description>
+	</class>
+        <class name="basic_quadrotor_behaviors/BehaviorLocalizeWithOdometry" type="basic_quadrotor_behaviors::BehaviorLocalizeWithOdometry"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorLocalizeWithOdometry.
+		</description>
+	</class>
+        <class name="basic_quadrotor_behaviors/BehaviorSelfLocalizeWithOdometry1" type="basic_quadrotor_behaviors::BehaviorSelfLocalizeWithOdometry1"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorSelfLocalizeWithOdometry1.
+		</description>
+	</class>
+        <class name="basic_quadrotor_behaviors/BehaviorLand" type="basic_quadrotor_behaviors::BehaviorLand"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorLand.
+		</description>
+	</class>
+        <class name="basic_quadrotor_behaviors/BehaviorWait" type="basic_quadrotor_behaviors::BehaviorWait"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorWait.
+		</description>
+	</class>
+</library>

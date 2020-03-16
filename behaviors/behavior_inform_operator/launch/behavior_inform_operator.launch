@@ -1,0 +1,29 @@
+<launch>
+
+  <!-- Basic data -->
+  <arg name="namespace"                 default="drone1" />
+  <arg name="drone_id"                           default="1" />
+  <arg name="my_stack_directory"                 default="$(env AEROSTACK_STACK)" />
+ 
+  <!-- topics & services-->
+  <arg name="add_belief_srv"                     default="add_belief" />
+ 
+  <group ns="$(arg namespace)">
+
+    <!-- Basic data -->
+    <param name="~namespace"     value="$(arg namespace)"    type="str" />
+    <param name="~drone_id"               value="$(arg drone_id)"              type="str" />
+    <param name="~my_stack_directory"     value="$(arg my_stack_directory)"    type="str" />
+   
+
+    <!-- topics & services -->
+    <param name="~add_belief_srv"         value="$(arg add_belief_srv)"        type="str" />
+   
+
+    <node name="behavior_inform_operator" pkg="behavior_inform_operator"  type="behavior_inform_operator"  output="screen"/>
+
+    <test test-name="behavior_inform_operator_test"  pkg="behavior_inform_operator_assistance" type="behavior_inform_operator_test"/>
+
+  </group>
+
+</launch>
